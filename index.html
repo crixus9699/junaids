@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junaids Law Academy | From Dhaka to the UK Bar</title>
+    <meta name="description" content="Premium guidance for Bangladeshi students pursuing UK Law degrees (LLB).">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- UI Frameworks & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        legal: {
+                            navy: '#0F172A',
+                            gold: '#C5A059',
+                            marble: '#F8FAFC',
+                            muted: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #C5A059 0%, #F1D299 50%, #C5A059 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-legal-gradient {
+            background: radial-gradient(circle at top right, #1e293b, #0F172A);
+        }
+        .roadmap-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #C5A059 0%, transparent 100%);
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .roadmap-line::before { left: 20px; }
+        }
+        .hover-gold-card:hover {
+            border-color: #C5A059;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-legal-marble font-sans text-legal-navy overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav x-data="{ open: false }" class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-serif font-bold text-white tracking-tighter">
+                        JUNAIDS<span class="text-legal-gold">LAW</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#roadmap" class="text-gray-300 hover:text-legal-gold transition-colors font-medium text-sm uppercase tracking-widest">The Journey</a>
+                    <a href="#academies" class="text-gray-300 hover:text-legal-gold transition-colors font-medium text-sm uppercase tracking-widest">Academies</a>
+                    <a href="#mentors" class="text-gray-300 hover:text-legal-gold transition-colors font-medium text-sm uppercase tracking-widest">Mentors</a>
+                    <a href="#resources" class="text-gray-300 hover:text-legal-gold transition-colors font-medium text-sm uppercase tracking-widest">Resources</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="tel:+880123456789" class="bg-legal-gold hover:bg-opacity-90 text-legal-navy px-6 py-2 rounded-full font-bold text-sm transition-all">
+                        CONSULT NOW
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-white">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="open" x-transition class="md:hidden bg-legal-navy p-4 space-y-4">
+            <a href="#roadmap" @click="open = false" class="block text-white">The Journey</a>
+            <a href="#academies" @click="open = false" class="block text-white">Academies</a>
+            <a href="#mentors" @click="open = false" class="block text-white">Mentors</a>
+            <a href="#resources" @click="open = false" class="block text-white">Resources</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 bg-legal-gradient overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Legal background">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
+                <span class="inline-block px-4 py-1 border border-legal-gold text-legal-gold rounded-full text-xs font-bold tracking-[0.3em] mb-6">ESTABLISHED EXCELLENCE</span>
+                <h1 class="text-5xl md:text-8xl font-serif font-black text-white leading-tight mb-6">
+                    From Dhaka to the <br>
+                    <span class="text-gradient-gold italic">UK Bar</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+                    Navigate your transition from HSC/A-Levels to becoming a world-class Barrister. Junaids Law Academy bridges the gap between Bangladeshi ambition and British tradition.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#roadmap" class="bg-legal-gold text-legal-navy px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform flex items-center justify-center">
+                        Explore the Roadmap <i class="fa-solid fa-arrow-right ml-3"></i>
+                    </a>
+                    <a href="#resources" class="border border-white/30 text-white hover:bg-white/10 px-10 py-4 rounded-lg font-bold text-lg backdrop-blur-sm transition-all flex items-center justify-center">
+                        Requirement Checklist
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative Scroll Down -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-legal-gold text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- The Roadmap Section -->
+    <section id="roadmap" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">The Golden Route to the Bar</h2>
+                <div class="w-24 h-1 bg-legal-gold mx-auto"></div>
+                <p class="mt-6 text-legal-muted max-w-2xl mx-auto italic">A step-by-step interactive guide for Bangladeshi students.</p>
+            </div>
+
+            <div class="relative roadmap-line max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center mb-20 relative z-10" data-aos="fade-right">
+                    <div class="md:w-1/2 md:pr-12 text-right hidden md:block">
+                        <h3 class="text-2xl font-bold">Foundation</h3>
+                        <p class="text-legal-muted">Completion of HSC (Bangladeshi Board) or A-Levels with strong academic standing.</p>
+                    </div>
+                    <div class="w-12 h-12 bg-legal-navy border-4 border-legal-gold rounded-full flex items-center justify-center relative z-20">
+                        <span class="text-legal-gold font-bold">01</span>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="bg-legal-marble p-6 rounded-2xl border border-gray-100 shadow-sm md:hidden">
+                             <h3 class="text-xl font-bold mb-2">HSC / A-Levels</h3>
+                             <p class="text-sm text-legal-muted">Start with your local qualifications or British curriculum equivalents.</p>
+                        </div>
+                        <div class="hidden md:block">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=400" class="rounded-xl shadow-lg w-full h-40 object-cover" alt="Graduation">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row items-center mb-20 relative z-10" data-aos="fade-left">
+                    <div class="md:w-1/2 md:pr-12">
+                         <div class="hidden md:block">
+                            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=400" class="rounded-xl shadow-lg w-full h-40 object-cover" alt="Law books">
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 bg-legal-navy border-4 border-legal-gold rounded-full flex items-center justify-center relative z-20">
+                        <span class="text-legal-gold font-bold">02</span>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <h3 class="text-2xl font-bold">CertHE Common Law</h3>
+                        <p class="text-legal-muted">Entry-level qualification for University of London (UoL) for those coming from HSC background. Typically 1 year.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center mb-20 relative z-10" data-aos="fade-right">
+                    <div class="md:w-1/2 md:pr-12 text-right">
+                        <h3 class="text-2xl font-bold">LLB (Hons) Degree</h3>
+                        <p class="text-legal-muted">Complete your 3-year UK LLB through University of London or University of Hertfordshire tuition centers in Dhaka.</p>
+                    </div>
+                    <div class="w-12 h-12 bg-legal-navy border-4 border-legal-gold rounded-full flex items-center justify-center relative z-20">
+                        <span class="text-legal-gold font-bold">03</span>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="hidden md:block">
+                            <img src="https://images.unsplash.com/photo-1521791136366-39b042b668d2?auto=format&fit=crop&q=80&w=400" class="rounded-xl shadow-lg w-full h-40 object-cover" alt="Study session">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row items-center relative z-10" data-aos="fade-left">
+                    <div class="md:w-1/2 md:pr-12">
+                         <div class="hidden md:block">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=400" class="rounded-xl shadow-lg w-full h-40 object-cover" alt="London skyline">
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 bg-legal-navy border-4 border-legal-gold rounded-full flex items-center justify-center relative z-20">
+                        <span class="text-legal-gold font-bold">04</span>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <h3 class="text-2xl font-bold">BTC & Call to Bar</h3>
+                        <p class="text-legal-muted">Go to the UK for the Bar Transfer Course (BTC/BPC), join an Inn of Court, and finally be called to the Bar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academy Directory -->
+    <section id="academies" class="py-24 bg-legal-marble">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-serif font-bold mb-4">Recognized Tuition Centers</h2>
+                <p class="text-legal-muted">The pillars of UK Law education in Bangladesh.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- NLA -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-gold-card border-t-4 border-transparent" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-building-columns text-2xl text-blue-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Newcastle Law Academy (NLA)</h3>
+                    <p class="text-sm text-legal-gold font-bold mb-4">Academic Excellence</p>
+                    <p class="text-gray-600 mb-6">Led by <span class="font-semibold">Barrister M.A. Muntakim</span> & <span class="font-semibold">Barrister Moshiur Rahman</span>. Known for rigorous academic support and a massive campus.</p>
+                    <div class="pt-6 border-t border-gray-100 flex items-center text-xs text-legal-muted">
+                        <i class="fa-solid fa-location-dot mr-2"></i> Uttara & Dhanmondi, Dhaka
+                    </div>
+                </div>
+
+                <!-- Bhuiyan -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-gold-card border-t-4 border-transparent" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-amber-50 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-award text-2xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Bhuiyan Academy</h3>
+                    <p class="text-sm text-legal-gold font-bold mb-4">The Pioneer Institution</p>
+                    <p class="text-gray-600 mb-6">Established by <span class="font-semibold text-blue-900 underline">Dr. Rabia Bhuiyan</span>, the first female barrister of Bangladesh. Legacy-driven education for over 30 years.</p>
+                    <div class="pt-6 border-t border-gray-100 flex items-center text-xs text-legal-muted">
+                        <i class="fa-solid fa-location-dot mr-2"></i> Sobhanbagh, Dhaka
+                    </div>
+                </div>
+
+                <!-- LCLS -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-gold-card border-t-4 border-transparent" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-red-50 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-gavel text-2xl text-red-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">LCLS (South)</h3>
+                    <p class="text-sm text-legal-gold font-bold mb-4">Advocacy Training Hub</p>
+                    <p class="text-gray-600 mb-6">Led by <span class="font-semibold">Dr. Khaled Hamid Chowdhury</span>. Famous for mooting, advocacy training, and high success rates in Bar Finals.</p>
+                    <div class="pt-6 border-t border-gray-100 flex items-center text-xs text-legal-muted">
+                        <i class="fa-solid fa-location-dot mr-2"></i> Kalabagan, Dhaka
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section id="mentors" class="py-24 bg-legal-navy text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-serif font-bold mb-4">Elite Mentorship Grid</h2>
+                    <p class="text-gray-400">Learn from the legal minds who have navigated the path successfully.</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="text-legal-gold border-b border-legal-gold pb-1 cursor-pointer hover:text-white transition-colors">View All Faculty</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Mentor 1 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" alt="Barrister">
+                        <div class="absolute inset-0 bg-gradient-to-t from-legal-navy via-transparent to-transparent"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-legal-gold">Barrister Sayed Ul Haque Dinar</h4>
+                    <p class="text-gray-400 text-sm mt-1">Lincoln's Inn | Legal Methodology Specialist</p>
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" alt="Barrister">
+                        <div class="absolute inset-0 bg-gradient-to-t from-legal-navy via-transparent to-transparent"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-legal-gold">Barrister H.M. Shanjid Siddique</h4>
+                    <p class="text-gray-400 text-sm mt-1">Hon'ble Society of Inner Temple | Commercial Law</p>
+                </div>
+
+                <!-- Mentor 3 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" alt="Barrister">
+                        <div class="absolute inset-0 bg-gradient-to-t from-legal-navy via-transparent to-transparent"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-legal-gold">Barrister Tanvir Parvez</h4>
+                    <p class="text-gray-400 text-sm mt-1">Expert in UK Public Law & Human Rights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Resource Hub -->
+    <section id="resources" class="py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="text-4xl font-serif font-bold mb-6">Student Resource Hub</h2>
+                    <p class="text-legal-muted mb-8 text-lg">Before you apply, ensure you have the following prerequisites ready for your LLB and Visa applications.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center p-4 bg-legal-marble rounded-xl border border-gray-100">
+                            <i class="fa-solid fa-circle-check text-legal-gold mr-4 text-xl"></i>
+                            <span class="font-semibold">IELTS Academic (Score 6.5 minimum)</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-legal-marble rounded-xl border border-gray-100">
+                            <i class="fa-solid fa-circle-check text-legal-gold mr-4 text-xl"></i>
+                            <span class="font-semibold">Valid Passport (Min. 2 years validity)</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-legal-marble rounded-xl border border-gray-100">
+                            <i class="fa-solid fa-circle-check text-legal-gold mr-4 text-xl"></i>
+                            <span class="font-semibold">Academic Transcripts & Certificates</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-legal-marble rounded-xl border border-gray-100">
+                            <i class="fa-solid fa-circle-check text-legal-gold mr-4 text-xl"></i>
+                            <span class="font-semibold">Letter of Recommendations</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="bg-legal-navy p-10 rounded-3xl text-white relative z-10">
+                        <h3 class="text-2xl font-serif font-bold mb-6">University Selection</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <span class="bg-legal-gold/20 text-legal-gold p-2 rounded mr-4">UoL</span>
+                                <div>
+                                    <p class="font-bold">University of London</p>
+                                    <p class="text-sm text-gray-400 italic">International Programmes (Standard entry or Graduate entry available)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-legal-gold/20 text-legal-gold p-2 rounded mr-4">UoH</span>
+                                <div>
+                                    <p class="font-bold">University of Hertfordshire</p>
+                                    <p class="text-sm text-gray-400 italic">Direct entry and tuition center support in Bangladesh.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <button class="w-full mt-10 py-4 border border-legal-gold text-legal-gold rounded-lg hover:bg-legal-gold hover:text-legal-navy transition-all font-bold">
+                            DOWNLOAD GUIDE PDF
+                        </button>
+                    </div>
+                    <!-- Decorative Circle -->
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-legal-gold rounded-full opacity-10 blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-legal-navy pt-20 pb-10 text-white border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-3xl font-serif font-bold tracking-tighter block mb-6">
+                        JUNAIDS<span class="text-legal-gold">LAW</span>
+                    </span>
+                    <p class="text-gray-400 leading-relaxed">
+                        The ultimate gateway for aspiring legal professionals in Bangladesh seeking global recognition through British education.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-6 text-legal-gold">Quick Links</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">How it Works</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academy Directory</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-6 text-legal-gold">Contact Academy</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center"><i class="fa-solid fa-phone mr-3 text-legal-gold"></i> +880 1XXX-XXXXXX</li>
+                        <li class="flex items-center"><i class="fa-solid fa-envelope mr-3 text-legal-gold"></i> info@junaidslaw.com</li>
+                        <li class="flex items-center"><i class="fa-solid fa-location-dot mr-3 text-legal-gold"></i> Banani, Dhaka, BD</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-6 text-legal-gold">Follow Us</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-legal-gold hover:text-legal-navy transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-legal-gold hover:text-legal-navy transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-legal-gold hover:text-legal-navy transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-10 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 Junaids Law Academy. All Rights Reserved. Designed for Professional Legal Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Init Scripts -->
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-0');
+            } else {
+                nav.classList.add('py-0');
+                nav.classList.remove('py-2');
+            }
+        });
+    </script>
+</body>
+</html>
