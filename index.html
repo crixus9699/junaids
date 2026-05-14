@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junaids Law Academy | The Premier UK Law Gateway</title>
+    <title>Junaids Law Academy | Premium UK Law Pathway</title>
     
-    <!-- Core Frameworks -->
+    <!-- Frameworks -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Premium Typography -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <script>
@@ -20,9 +22,18 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: { 50: '#fbf8f1', 100: '#f5ecd9', 500: '#C5A059', 600: '#B48E46' },
-                        navy: { 800: '#1E293B', 900: '#0F172A' },
-                        slate: { 50: '#F8FAFC', 100: '#F1F5F9' }
+                        gold: {
+                            50: '#fbf8f1',
+                            100: '#f5ecd9',
+                            500: '#C5A059',
+                            600: '#B48E46',
+                            700: '#967339',
+                        },
+                        navy: {
+                            800: '#1E293B',
+                            900: '#0F172A',
+                        },
+                        marble: '#F8FAFC'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -36,395 +47,337 @@
 
     <style>
         [x-cloak] { display: none !important; }
-        .hero-gradient { background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%); }
-        .gold-border-gradient { border-image: linear-gradient(to right, #C5A059, #F1D299) 1; }
-        .card-hover:hover { transform: translateY(-10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .tab-active { border-bottom: 3px solid #C5A059; color: #0F172A; font-weight: 700; }
+        .page-transition { transition: all 0.4s ease-in-out; }
+        .nav-link-active { color: #C5A059; border-bottom: 2px solid #C5A059; }
+        .academic-card:hover { border-color: #C5A059; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
+        .hero-pattern { background-color: #ffffff; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h-9v-4h1v4h9v-9h-9v1h9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
     </style>
 </head>
-<body x-data="{ page: 'home', mobileMenu: false, eligibility: 'hsc' }" class="bg-white text-navy-900 font-sans">
+<body x-data="{ page: 'home', mobileMenu: false }" class="bg-marble text-navy-900 font-sans leading-relaxed">
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="glass-header border-b border-gray-100 sticky top-0 z-50">
+    <!-- Professional Header -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-3 cursor-pointer" @click="page = 'home'">
-                    <div class="bg-navy-900 p-2 rounded-lg shadow-lg">
-                        <i class="fa-solid fa-gavel text-gold-500 text-2xl"></i>
+            <div class="flex justify-between items-center py-5">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 cursor-pointer" @click="page = 'home'">
+                    <div class="bg-navy-900 p-2 rounded">
+                        <i class="fa-solid fa-scale-balanced text-gold-500 text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-display font-bold tracking-tight text-navy-900 leading-none">JUNAIDS</h1>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-gold-600 font-bold">Law Academy</p>
+                        <h1 class="text-xl font-display font-bold tracking-tight text-navy-900">JUNAIDS<span class="text-gold-500 uppercase ml-1 text-sm">Law Academy</span></h1>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-semibold">UK Law Entry Specialists</p>
                     </div>
                 </div>
 
-                <nav class="hidden lg:flex items-center space-x-8">
-                    <button @click="page = 'home'" :class="page === 'home' ? 'text-gold-600 border-b-2 border-gold-500' : 'text-gray-600'" class="text-xs font-bold uppercase tracking-widest hover:text-gold-500 transition-all py-2">The Portal</button>
-                    <button @click="page = 'roadmap'" :class="page === 'roadmap' ? 'text-gold-600 border-b-2 border-gold-500' : 'text-gray-600'" class="text-xs font-bold uppercase tracking-widest hover:text-gold-500 transition-all py-2">Journey Roadmap</button>
-                    <button @click="page = 'academies'" :class="page === 'academies' ? 'text-gold-600 border-b-2 border-gold-500' : 'text-gray-600'" class="text-xs font-bold uppercase tracking-widest hover:text-gold-500 transition-all py-2">Directory</button>
-                    <button @click="page = 'admissions'" :class="page === 'admissions' ? 'text-gold-600 border-b-2 border-gold-500' : 'text-gray-600'" class="text-xs font-bold uppercase tracking-widest hover:text-gold-500 transition-all py-2">Admission Hub</button>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-10">
+                    <button @click="page = 'home'" :class="page === 'home' ? 'nav-link-active' : ''" class="text-sm font-bold uppercase tracking-wider hover:text-gold-500 transition-colors py-2">Home</button>
+                    <button @click="page = 'roadmap'" :class="page === 'roadmap' ? 'nav-link-active' : ''" class="text-sm font-bold uppercase tracking-wider hover:text-gold-500 transition-colors py-2">The Roadmap</button>
+                    <button @click="page = 'academies'" :class="page === 'academies' ? 'nav-link-active' : ''" class="text-sm font-bold uppercase tracking-wider hover:text-gold-500 transition-colors py-2">Academies</button>
+                    <button @click="page = 'admissions'" :class="page === 'admissions' ? 'nav-link-active' : ''" class="text-sm font-bold uppercase tracking-wider hover:text-gold-500 transition-colors py-2">Admissions</button>
                 </nav>
 
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="tel:+8801234567" class="text-navy-900 font-bold text-sm"><i class="fa-solid fa-phone-volume text-gold-500 mr-2"></i> +880 1XXX</a>
-                    <button class="bg-navy-900 text-white px-6 py-2.5 rounded text-xs font-bold tracking-widest hover:bg-gold-600 transition-all shadow-md">APPLY NOW</button>
+                <div class="hidden md:block">
+                    <a href="#" class="inline-flex items-center px-6 py-2.5 border border-transparent text-sm font-bold rounded-md text-white bg-navy-900 hover:bg-navy-800 shadow-sm transition-all">
+                        Consultation
+                    </a>
                 </div>
 
-                <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-navy-900"><i class="fa-solid fa-bars-staggered text-2xl"></i></button>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-navy-900 p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div x-show="mobileMenu" x-cloak class="md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg">
+            <button @click="page = 'home'; mobileMenu = false" class="block w-full text-left font-bold text-navy-900">HOME</button>
+            <button @click="page = 'roadmap'; mobileMenu = false" class="block w-full text-left font-bold text-navy-900">ROADMAP</button>
+            <button @click="page = 'academies'; mobileMenu = false" class="block w-full text-left font-bold text-navy-900">ACADEMIES</button>
+            <button @click="page = 'admissions'; mobileMenu = false" class="block w-full text-left font-bold text-navy-900">ADMISSIONS</button>
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
-    <div x-show="mobileMenu" x-cloak class="fixed inset-0 z-[60] bg-white p-8 lg:hidden">
-        <button @click="mobileMenu = false" class="absolute top-6 right-6 text-3xl">&times;</button>
-        <div class="space-y-6 mt-12 text-center">
-            <button @click="page = 'home'; mobileMenu = false" class="block w-full text-2xl font-display font-bold">HOME</button>
-            <button @click="page = 'roadmap'; mobileMenu = false" class="block w-full text-2xl font-display font-bold">ROADMAP</button>
-            <button @click="page = 'academies'; mobileMenu = false" class="block w-full text-2xl font-display font-bold">ACADEMIES</button>
-            <button @click="page = 'admissions'; mobileMenu = false" class="block w-full text-2xl font-display font-bold">ADMISSIONS</button>
-        </div>
-    </div>
+    <!-- CONTENT AREAS -->
+    <main class="page-transition">
 
-    <!-- MAIN CONTENT SPA -->
-    <main>
-        
-        <!-- ================= HOME PAGE (EXTENDED) ================= -->
-        <div x-show="page === 'home'" class="animate-in fade-in duration-500">
-            
-            <!-- Hero Section -->
-            <section class="hero-gradient pt-16 pb-24 overflow-hidden">
-                <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-                    <div data-aos="fade-right">
-                        <h2 class="text-navy-900 font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 italic">
-                            Become a <span class="text-gold-500 not-italic">British Barrister</span> from Bangladesh.
-                        </h2>
-                        <p class="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed border-l-4 border-gold-500 pl-6">
-                            Secure a University of London (UoL) LLB degree locally. We provide the mentorship, resources, and institutional connections to take you from Dhaka to the UK High Court.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <button @click="page = 'admissions'" class="bg-navy-900 text-white px-10 py-4 rounded font-bold shadow-xl hover:scale-105 transition-all">Start Your Application</button>
-                            <a href="#checker" class="bg-white text-navy-900 border-2 border-navy-900 px-10 py-4 rounded font-bold hover:bg-navy-50 transition-all">Check Eligibility</a>
+        <!-- PAGE: HOME -->
+        <div x-show="page === 'home'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4">
+            <!-- Hero -->
+            <section class="relative bg-white pt-20 pb-32 overflow-hidden hero-pattern">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                        <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-7 lg:text-left">
+                            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold bg-gold-100 text-gold-700 uppercase tracking-widest mb-4">
+                                Career Excellence
+                            </span>
+                            <h2 class="text-4xl tracking-tight font-serif font-bold text-navy-900 sm:text-5xl md:text-6xl">
+                                From Dhaka to the <span class="text-gold-500">UK Bar</span>: A Global Legal Journey.
+                            </h2>
+                            <p class="mt-6 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl leading-relaxed">
+                                Junaids Law Academy provides the strategic roadmap for Bangladeshi HSC and A-Level graduates to earn a Qualifying Law Degree (QLD) and practice as a Barrister in the UK and Bangladesh.
+                            </p>
+                            <div class="mt-10 sm:flex sm:justify-center lg:justify-start space-x-4">
+                                <button @click="page = 'roadmap'" class="px-8 py-4 bg-navy-900 text-white font-bold rounded shadow-xl hover:bg-navy-800 transition-all">
+                                    View Career Roadmap
+                                </button>
+                                <button @click="page = 'admissions'" class="px-8 py-4 bg-white border-2 border-navy-900 text-navy-900 font-bold rounded hover:bg-gray-50 transition-all">
+                                    Entry Requirements
+                                </button>
+                            </div>
                         </div>
-                        <div class="mt-12 flex items-center space-x-6 grayscale opacity-60">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/University_of_London_logo.svg/1200px-University_of_London_logo.svg.png" class="h-8" alt="UoL">
-                            <img src="https://www.herts.ac.uk/__data/assets/image/0009/251784/UH-logo-high-res.png" class="h-8" alt="Herts">
-                        </div>
-                    </div>
-                    <div class="relative" data-aos="zoom-in">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80" class="rounded-2xl shadow-2xl z-10 relative" alt="Legal">
-                        <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-xl shadow-2xl border border-gold-100 hidden md:block z-20">
-                            <div class="flex items-center space-x-4">
-                                <div class="text-4xl font-bold text-navy-900">100%</div>
-                                <div class="text-xs font-bold uppercase text-gold-600 tracking-widest leading-tight">Accredited<br>Pathway</div>
+                        <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-5 lg:flex lg:items-center">
+                            <div class="relative mx-auto w-full rounded-lg shadow-2xl overflow-hidden border-8 border-white">
+                                <img class="w-full" src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80" alt="Law Library">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Quick Info: Why UK Law? -->
-            <section class="py-24 bg-white">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="grid md:grid-cols-3 gap-12">
-                        <div class="text-center p-8 rounded-2xl bg-slate-50 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
-                            <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fa-solid fa-earth-americas text-gold-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-4">Global Portability</h3>
-                            <p class="text-gray-500 text-sm">A UK LLB degree is recognized in 50+ Commonwealth nations, allowing you to practice internationally.</p>
-                        </div>
-                        <div class="text-center p-8 rounded-2xl bg-slate-50 border border-gray-100" data-aos="fade-up" data-aos-delay="200">
-                            <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fa-solid fa-landmark text-gold-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-4">High Court Practice</h3>
-                            <p class="text-gray-500 text-sm">In Bangladesh, Barristers hold immense prestige and high status within the Supreme Court and High Court Division.</p>
-                        </div>
-                        <div class="text-center p-8 rounded-2xl bg-slate-50 border border-gray-100" data-aos="fade-up" data-aos-delay="300">
-                            <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fa-solid fa-sterling-sign text-gold-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-4">Cost Effective</h3>
-                            <p class="text-gray-500 text-sm">Save up to 80% on international tuition by completing the first 3 years of your UK degree here in Dhaka.</p>
-                        </div>
+            <!-- Stats Bar -->
+            <section class="bg-navy-900 py-12">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-gold-500">30+ Years</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-widest mt-2">Combined Legacy</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-gold-500">100%</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-widest mt-2">UK QLD Status</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-gold-500">Dhaka</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-widest mt-2">Study Centers</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-gold-500">£0 Tuition</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-widest mt-2">UK Travel (Initial Years)</div>
                     </div>
                 </div>
             </section>
-
-            <!-- INTERACTIVE: ELIGIBILITY CHECKER -->
-            <section id="checker" class="py-24 bg-navy-900 text-white overflow-hidden relative">
-                <div class="max-w-5xl mx-auto px-4 relative z-10">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-serif font-bold mb-4">Are You Eligible?</h2>
-                        <p class="text-gray-400">Select your current educational status to see your roadmap.</p>
-                    </div>
-
-                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10">
-                        <div class="flex justify-center space-x-4 mb-12">
-                            <button @click="eligibility = 'hsc'" :class="eligibility === 'hsc' ? 'bg-gold-500 text-navy-900' : 'bg-white/5'" class="px-8 py-3 rounded-full font-bold transition-all">HSC / National Board</button>
-                            <button @click="eligibility = 'alevel'" :class="eligibility === 'alevel' ? 'bg-gold-500 text-navy-900' : 'bg-white/5'" class="px-8 py-3 rounded-full font-bold transition-all">A-Levels / British Curriculum</button>
-                        </div>
-
-                        <div x-show="eligibility === 'hsc'" class="grid md:grid-cols-2 gap-8 animate-in slide-in-from-bottom-5">
-                            <div class="space-y-4">
-                                <h3 class="text-2xl font-bold text-gold-500">Route: CertHE Common Law</h3>
-                                <p class="text-gray-300">As an HSC graduate, you cannot enter the 1st year of LLB directly. You must start with the Certificate of Higher Education.</p>
-                                <ul class="space-y-3">
-                                    <li><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> Duration: 1 Year (CertHE) + 2 Years (LLB)</li>
-                                    <li><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> Min GPA: 3.5 in HSC</li>
-                                    <li><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> IELTS: 6.0 recommended</li>
-                                </ul>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl">
-                                <h4 class="font-bold mb-4">Next Steps:</h4>
-                                <ol class="text-sm space-y-3 text-gray-400 list-decimal pl-4">
-                                    <li>Enroll in a Dhaka Tuition Center</li>
-                                    <li>Register with University of London</li>
-                                    <li>Pass 4 modules (Criminal, Public, Contract, Legal System)</li>
-                                    <li>Transfer to LLB Year 2</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div x-show="eligibility === 'alevel'" class="grid md:grid-cols-2 gap-8 animate-in slide-in-from-bottom-5">
-                            <div class="space-y-4">
-                                <h3 class="text-2xl font-bold text-gold-500">Route: Direct LLB Entry</h3>
-                                <p class="text-gray-300">You are eligible for direct admission to the University of London or Hertfordshire LLB (Hons) program.</p>
-                                <ul class="space-y-3">
-                                    <li><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> Duration: 3 Years (Direct LLB)</li>
-                                    <li><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> Requirements: 2 Full A-Levels (Min. C, C)</li>
-                                    <li><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> O-Levels: Math and English (Min. C)</li>
-                                </ul>
-                            </div>
-                            <div class="bg-white/5 p-6 rounded-2xl">
-                                <h4 class="font-bold mb-4">Direct Entry Benefits:</h4>
-                                <ol class="text-sm space-y-3 text-gray-400 list-decimal pl-4">
-                                    <li>No Foundation year needed</li>
-                                    <li>Immediate access to Year 1 modules</li>
-                                    <li>Standard 3-year track to graduation</li>
-                                    <li>Lower overall cost than the CertHE route</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Decor -->
-                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
-            </section>
-
-            <!-- CURRICULUM OVERVIEW -->
-            <section class="py-24 bg-slate-50">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                        <div>
-                            <h2 class="text-4xl font-serif font-bold mb-4">Academic Architecture</h2>
-                            <p class="text-gray-500">The Qualifying Law Degree (QLD) structure you will follow.</p>
-                        </div>
-                        <div class="mt-6">
-                            <div class="inline-flex rounded-md shadow-sm">
-                                <button class="px-6 py-2 bg-navy-900 text-white rounded-l text-sm font-bold">Standard Track</button>
-                                <button class="px-6 py-2 bg-white text-navy-900 border border-gray-200 rounded-r text-sm font-bold">Graduate Entry</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Year 1 -->
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-navy-900">
-                            <span class="text-gold-500 font-bold tracking-widest text-xs uppercase">Level 4</span>
-                            <h3 class="text-xl font-bold mt-2 mb-6">Year 1: Foundation</h3>
-                            <ul class="space-y-4 text-sm text-gray-600">
-                                <li class="flex justify-between"><span>Criminal Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Contract Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Public Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Legal System & Methods</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                            </ul>
-                        </div>
-                        <!-- Year 2 -->
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-gold-500">
-                            <span class="text-gold-500 font-bold tracking-widest text-xs uppercase">Level 5</span>
-                            <h3 class="text-xl font-bold mt-2 mb-6">Year 2: Core</h3>
-                            <ul class="space-y-4 text-sm text-gray-600">
-                                <li class="flex justify-between"><span>Tort Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Property Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>EU Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Commercial Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                            </ul>
-                        </div>
-                        <!-- Year 3 -->
-                        <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-navy-900">
-                            <span class="text-gold-500 font-bold tracking-widest text-xs uppercase">Level 6</span>
-                            <h3 class="text-xl font-bold mt-2 mb-6">Year 3: Specialization</h3>
-                            <ul class="space-y-4 text-sm text-gray-600">
-                                <li class="flex justify-between"><span>Equity & Trusts</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Jurisprudence</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Company Law</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                                <li class="flex justify-between"><span>Evidence (Elective)</span> <i class="fa-solid fa-lock text-gray-300"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CALL TO ACTION -->
-            <section class="py-20 bg-white">
-                <div class="max-w-4xl mx-auto text-center px-4">
-                    <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8 italic">"The law is a profession of <span class="text-gold-500">service</span> and dignity."</h2>
-                    <p class="text-gray-500 mb-10">Start your journey today with Bangladesh's most comprehensive UK Law academy resource hub.</p>
-                    <button @click="page = 'admissions'" class="bg-gold-500 text-navy-900 px-12 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all">Download Admission Guide (PDF)</button>
-                </div>
-            </section>
-
         </div>
 
-        <!-- ================= PAGE: ROADMAP ================= -->
-        <div x-show="page === 'roadmap'" class="animate-in slide-in-from-right duration-500 max-w-5xl mx-auto px-4 py-24">
-            <h2 class="text-4xl font-serif font-bold text-center mb-20">The Full Path: Dhaka to UK Bar</h2>
-            
-            <div class="relative border-l-2 border-gold-500 ml-4 md:ml-0 md:left-1/2">
+        <!-- PAGE: ROADMAP (Detailed Information) -->
+        <div x-show="page === 'roadmap'" x-cloak class="max-w-5xl mx-auto px-4 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold text-navy-900">The 4-Stage Legal Journey</h2>
+                <div class="w-20 h-1 bg-gold-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="space-y-12">
                 <!-- Step 1 -->
-                <div class="mb-12 relative">
-                    <div class="md:absolute md:left-[-410px] md:top-0 md:w-96 text-right hidden md:block" data-aos="fade-right">
-                        <h4 class="text-xl font-bold text-navy-900">Admission & Entry</h4>
-                        <p class="text-gray-500 text-sm">Enroll in CertHE or Direct LLB based on your academic profile.</p>
-                    </div>
-                    <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gold-500 ring-4 ring-gold-100"></div>
-                    <div class="ml-10 md:ml-12 bg-slate-50 p-6 rounded-xl shadow-sm" data-aos="fade-left">
-                        <h4 class="md:hidden font-bold">Admission & Entry</h4>
-                        <p class="font-semibold text-gold-600">Stage 01: Foundation</p>
-                        <p class="text-sm text-gray-500 mt-2">Registration with UoL (University of London) via a tuition center in Dhaka.</p>
+                <div class="flex flex-col md:flex-row gap-8 items-start p-8 bg-white border-l-4 border-gold-500 shadow-sm">
+                    <div class="flex-shrink-0 bg-gold-50 text-gold-600 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl border border-gold-100">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Academic Foundation (Pre-LLB)</h3>
+                        <p class="text-gray-600 mb-4">Students from the National Curriculum (HSC) usually begin with the **Certificate of Higher Education (CertHE) in Common Law**. A-Level students (with 2 Cs or better) may apply for direct 1st-year entry.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-500">
+                            <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Duration: 1 Year</li>
+                            <li><i class="fa-solid fa-check text-gold-500 mr-2"></i> Qualification: Level 4 FHEQ</li>
+                        </ul>
                     </div>
                 </div>
+
                 <!-- Step 2 -->
-                <div class="mb-12 relative">
-                    <div class="md:absolute md:right-[-410px] md:top-0 md:w-96 text-left hidden md:block" data-aos="fade-left">
-                        <h4 class="text-xl font-bold text-navy-900">The Degree Phase</h4>
-                        <p class="text-gray-500 text-sm">3 years of intensive legal study covering all core subjects.</p>
-                    </div>
-                    <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-navy-900 ring-4 ring-gray-100"></div>
-                    <div class="ml-10 md:mr-12 md:ml-[-410px] text-left md:text-right bg-slate-50 p-6 rounded-xl shadow-sm" data-aos="fade-right">
-                        <h4 class="md:hidden font-bold">The Degree Phase</h4>
-                        <p class="font-semibold text-gold-600">Stage 02: LLB (Hons)</p>
-                        <p class="text-sm text-gray-500 mt-2">Annual exams conducted by the British Council Bangladesh.</p>
+                <div class="flex flex-col md:flex-row gap-8 items-start p-8 bg-white border-l-4 border-navy-900 shadow-sm">
+                    <div class="flex-shrink-0 bg-gray-100 text-navy-900 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">The LLB (Hons) Degree</h3>
+                        <p class="text-gray-600 mb-4">Study locally in Dhaka via Recognized Teaching Centers of the **University of London** or **Hertfordshire**. You will cover 9-12 core modules including Criminal, Contract, Tort, and Trust Law.</p>
+                        <div class="bg-gray-50 p-4 rounded text-sm italic">Note: To practice in the UK, your degree must be a "Qualifying Law Degree" (QLD).</div>
                     </div>
                 </div>
+
                 <!-- Step 3 -->
-                <div class="mb-12 relative">
-                    <div class="md:absolute md:left-[-410px] md:top-0 md:w-96 text-right hidden md:block" data-aos="fade-right">
-                        <h4 class="text-xl font-bold text-navy-900">UK Professional Year</h4>
-                        <p class="text-gray-500 text-sm">Move to the UK for the Bar Transfer Course (BTC/BPC).</p>
+                <div class="flex flex-col md:flex-row gap-8 items-start p-8 bg-white border-l-4 border-gold-500 shadow-sm">
+                    <div class="flex-shrink-0 bg-gold-50 text-gold-600 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Professional Training (The BTC)</h3>
+                        <p class="text-gray-600 mb-4">Post-graduation, students move to the UK for 1 year to complete the **Bar Transfer Course (BTC)** or BPC. You must also join one of the four **Inns of Court** (Lincoln's, Gray's, Inner Temple, or Outer Temple).</p>
                     </div>
-                    <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gold-500 ring-4 ring-gold-100"></div>
-                    <div class="ml-10 md:ml-12 bg-slate-50 p-6 rounded-xl shadow-sm" data-aos="fade-left">
-                        <h4 class="md:hidden font-bold">UK Professional Year</h4>
-                        <p class="font-semibold text-gold-600">Stage 03: The Bar Course</p>
-                        <p class="text-sm text-gray-500 mt-2">Joining an Inn of Court and completing the vocational stage of training.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row gap-8 items-start p-8 bg-white border-l-4 border-navy-900 shadow-sm">
+                    <div class="flex-shrink-0 bg-gray-100 text-navy-900 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">4</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Call to the Bar & BTT</h3>
+                        <p class="text-gray-600 mb-4">Upon passing the Bar, you are a "Barrister-at-Law". To practice in the High Court of Bangladesh, you then sit for the **Bar Transfer Test (BTT)** conducted by the Bangladesh Bar Council.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ================= PAGE: ADMISSIONS ================= -->
-        <div x-show="page === 'admissions'" class="animate-in fade-in duration-500 max-w-7xl mx-auto px-4 py-24">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl font-serif font-bold mb-8">Admission & Fee Structure</h2>
-                    <p class="text-gray-600 mb-8 italic">Transparency is our priority. Below is a realistic overview of the financial commitment for the University of London (UoL) route.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex justify-between p-4 border-b border-gray-100">
-                            <span class="font-bold">UoL Application Fee</span>
-                            <span class="text-gold-600">£107 (One-time)</span>
-                        </div>
-                        <div class="flex justify-between p-4 border-b border-gray-100">
-                            <span class="font-bold">UoL Registration Fee</span>
-                            <span class="text-gold-600">£578 (Annual)</span>
-                        </div>
-                        <div class="flex justify-between p-4 border-b border-gray-100">
-                            <span class="font-bold">Module Fee (Per Subject)</span>
-                            <span class="text-gold-600">£181 (x4 subjects/year)</span>
-                        </div>
-                        <div class="flex justify-between p-4 border-b border-gray-100">
-                            <span class="font-bold">Tuition Center Dhaka (Avg)</span>
-                            <span class="text-gold-600">৳80,000 - ৳120,000 /yr</span>
-                        </div>
-                        <div class="p-4 bg-navy-50 rounded-lg text-sm text-navy-900">
-                            * Note: British Council exam venue fees are separate and paid in BDT locally.
-                        </div>
+        <!-- PAGE: ACADEMIES -->
+        <div x-show="page === 'academies'" x-cloak class="max-w-7xl mx-auto px-4 py-20">
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- NLA Card -->
+                <div class="bg-white border border-gray-100 rounded-xl p-8 academic-card transition-all">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=400" class="h-48 w-full object-cover rounded mb-6" alt="Academy">
+                    <h3 class="text-2xl font-bold text-navy-900">Newcastle Law Academy</h3>
+                    <p class="text-gold-600 font-bold text-sm mb-4">Key Leadership: Barrister M.A. Muntakim</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Offering a specialized environment for UoL International Programmes. Focus on high-quality lecture materials and mock exams.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">UoL Provider</span>
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">Dhanmondi</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-6">Request Prospectus</h3>
-                    <form class="space-y-4">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Full Name" class="w-full p-4 bg-slate-50 rounded border-none focus:ring-2 focus:ring-gold-500">
-                            <input type="email" placeholder="Email Address" class="w-full p-4 bg-slate-50 rounded border-none focus:ring-2 focus:ring-gold-500">
+                <!-- Bhuiyan Card -->
+                <div class="bg-white border border-gray-100 rounded-xl p-8 academic-card transition-all">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400" class="h-48 w-full object-cover rounded mb-6" alt="Academy">
+                    <h3 class="text-2xl font-bold text-navy-900">Bhuiyan Academy</h3>
+                    <p class="text-gold-600 font-bold text-sm mb-4">Founded by Dr. Rabia Bhuiyan</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">The first institution in Bangladesh to provide UK Law tuition. Pioneers of the LLB route with a massive alumni network of senior advocates.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">Pioneer Center</span>
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">Sobhanbagh</span>
+                    </div>
+                </div>
+
+                <!-- LCLS Card -->
+                <div class="bg-white border border-gray-100 rounded-xl p-8 academic-card transition-all">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=400" class="h-48 w-full object-cover rounded mb-6" alt="Academy">
+                    <h3 class="text-2xl font-bold text-navy-900">LCLS (South)</h3>
+                    <p class="text-gold-600 font-bold text-sm mb-4">Head: Dr. Khaled Hamid Chowdhury</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Renowned for its Moot Court Society and intensive advocacy training programs. High success rate in BTC admissions.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">Advocacy Expert</span>
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">Kalabagan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mentor Bios -->
+            <div class="mt-24">
+                <h3 class="text-center text-2xl font-serif font-bold mb-12">Distinguished Faculty & Mentors</h3>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="w-24 h-24 bg-gold-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie text-gold-600 text-3xl"></i>
                         </div>
-                        <select class="w-full p-4 bg-slate-50 rounded border-none focus:ring-2 focus:ring-gold-500">
-                            <option>Current Qualification: HSC</option>
-                            <option>Current Qualification: A-Level</option>
-                            <option>Current Qualification: Honors Graduate</option>
-                        </select>
-                        <textarea rows="4" placeholder="Your Message / Query" class="w-full p-4 bg-slate-50 rounded border-none focus:ring-2 focus:ring-gold-500"></textarea>
-                        <button class="w-full bg-navy-900 text-white font-bold py-4 rounded hover:bg-gold-600 transition-all shadow-lg">Submit Application</button>
-                    </form>
+                        <h4 class="font-bold">Barrister Sayed Ul Haque Dinar</h4>
+                        <p class="text-xs text-gray-500 uppercase">Constitutional Law Expert</p>
+                    </div>
+                    <div>
+                        <div class="w-24 h-24 bg-navy-900 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie text-gold-500 text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold">Barrister Tanvir Parvez</h4>
+                        <p class="text-xs text-gray-500 uppercase">Criminal Law Specialist</p>
+                    </div>
+                    <div>
+                        <div class="w-24 h-24 bg-gold-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie text-gold-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold">Barrister Shanjid Siddique</h4>
+                        <p class="text-xs text-gray-500 uppercase">Commercial Litigator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: ADMISSIONS -->
+        <div x-show="page === 'admissions'" x-cloak class="max-w-7xl mx-auto px-4 py-20">
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 bg-navy-900 text-white">
+                        <h2 class="text-3xl font-serif font-bold mb-6">Entry Requirements</h2>
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-gold-500 font-bold uppercase text-xs tracking-widest mb-2">Academic (HSC)</h4>
+                                <p class="text-gray-300">Minimum GPA 3.5 in HSC. Must enroll via CertHE Common Law route initially.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-gold-500 font-bold uppercase text-xs tracking-widest mb-2">Academic (A-Levels)</h4>
+                                <p class="text-gray-300">Minimum 2 full A-Levels with Grade C. Direct entry into Year 1 of LLB.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-gold-500 font-bold uppercase text-xs tracking-widest mb-2">Language Proficiency</h4>
+                                <p class="text-gray-300">IELTS Academic score of 6.5 overall (no band less than 6.0) for BTC applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-12">
+                        <h3 class="text-2xl font-bold mb-6">Document Checklist</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa-regular fa-file-pdf text-red-500 mr-3"></i> SSC & HSC / O & A Level Certificates
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa-regular fa-file-pdf text-red-500 mr-3"></i> Passport Copy (Valid for 6 months+)
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa-regular fa-file-pdf text-red-500 mr-3"></i> National ID / Birth Certificate
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa-regular fa-file-pdf text-red-500 mr-3"></i> 2 Passport Sized Photos
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-10 p-6 bg-gold-50 rounded-lg border border-gold-100">
+                            <h4 class="font-bold text-gold-700 mb-2">Quick Consultation</h4>
+                            <p class="text-sm text-gold-600 mb-4">Unsure about your eligibility? Speak with our admissions officer.</p>
+                            <input type="text" placeholder="Your Phone Number" class="w-full p-3 rounded border border-gold-200 mb-2">
+                            <button class="w-full bg-gold-500 text-white font-bold py-3 rounded hover:bg-gold-600 transition-colors">Request Callback</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-navy-900 text-white pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1">
-                    <h3 class="text-2xl font-display font-bold mb-6">JUNAIDS</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">The premier digital gateway for Bangladeshi students seeking the prestigious British LLB qualification. Expert guidance from Dhaka to the UK Bar.</p>
+    <!-- Professional Footer -->
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <h2 class="text-xl font-display font-bold tracking-tight text-navy-900 mb-4">JUNAIDS LAW ACADEMY</h2>
+                    <p class="text-gray-500 max-w-sm">Dedicated to shaping the next generation of Bangladeshi Barristers through world-class British legal education standards.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 text-gold-500 text-xs uppercase tracking-widest">Navigation</h4>
-                    <ul class="space-y-4 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white">Pathway Roadmap</a></li>
-                        <li><a href="#" class="hover:text-white">Academy Directory</a></li>
-                        <li><a href="#" class="hover:text-white">Resource Hub</a></li>
+                    <h4 class="font-bold text-navy-900 mb-4 uppercase text-xs tracking-widest">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-gold-500">UoL Programme Guide</a></li>
+                        <li><a href="#" class="hover:text-gold-500">Visa Requirements</a></li>
+                        <li><a href="#" class="hover:text-gold-500">Faculty List</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 text-gold-500 text-xs uppercase tracking-widest">Inns of Court</h4>
-                    <ul class="space-y-4 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white">Lincoln's Inn</a></li>
-                        <li><a href="#" class="hover:text-white">Inner Temple</a></li>
-                        <li><a href="#" class="hover:text-white">Gray's Inn</a></li>
+                    <h4 class="font-bold text-navy-900 mb-4 uppercase text-xs tracking-widest">Inns of Court</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="https://www.lincolnsinn.org.uk" target="_blank" class="hover:text-gold-500">Lincoln's Inn</a></li>
+                        <li><a href="https://www.innertemple.org.uk" target="_blank" class="hover:text-gold-500">Inner Temple</a></li>
+                        <li><a href="https://www.graysinn.org.uk" target="_blank" class="hover:text-gold-500">Gray's Inn</a></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6 text-gold-500 text-xs uppercase tracking-widest">Connect</h4>
-                    <div class="flex space-x-4 mb-6">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                    <p class="text-xs text-gray-500">Email: help@junaidslaw.com</p>
                 </div>
             </div>
-            <div class="border-t border-white/5 pt-8 text-center text-xs text-gray-500">
-                &copy; 2024 Junaids Law Academy. All Rights Reserved. UK Law Pathway Specialists.
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2024 Junaids Law Academy. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-navy-900 transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-navy-900 transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-navy-900 transition-colors">WhatsApp</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Init AOS
+        // Initialize Animations
         AOS.init({
-            duration: 800,
+            duration: 700,
             once: true,
-            easing: 'ease-in-out'
+            offset: 50
         });
 
-        // Navigation smooth behavior
+        // Simple smooth scroll to top on page change
         window.addEventListener('alpine:init', () => {
             Alpine.watch('page', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
